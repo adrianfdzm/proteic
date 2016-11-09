@@ -59,7 +59,11 @@ class Container {
      */
     private initializeContainer(selector: string, width: (number | string), height: (number | string), marginLeft: number, marginTop: number): void {
         this.svg = select(selector)
+            .style('position', 'relative')
+            .style('width', `${width}px`)
+            .style('height', `${height}px`)
             .append('svg:svg')
+            .style('position', 'absolute')
             .attr('width', width)
             .attr('height', height)
             .append('g')
@@ -81,6 +85,10 @@ class Container {
             component.update(data);
         }
     }
-};
+
+    public translate(x: Number, y: Number) {
+        this.svg.attr('transform', `translate(${x}, ${y})`)
+    }
+}
 
 export default Container;
