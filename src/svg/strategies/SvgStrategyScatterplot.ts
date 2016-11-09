@@ -44,8 +44,6 @@ class SvgStrategyScatterplot extends SvgChart {
     constructor() {
         super();
         this.axes = new XYAxes();
-        this.markers = new Pointset(this.axes.x, this.axes.y);
-        this.canvasMarkers = new CanvasPointset(this.axes.x, this.axes.y);
     }
 
     public draw(data: [{}]) {
@@ -63,13 +61,16 @@ class SvgStrategyScatterplot extends SvgChart {
 
     public initialize(): void {
         super.initialize();
-        let legend = this.config.get('legend');
+        let legend = this.config.get('legend'),
+            canvas = this.config.get('canvas');
 
         this.container.add(this.axes);
 
-        if (this.config.get('canvas')) {
+        if (canvas) {
+            this.canvasMarkers = new CanvasPointset(this.axes.x, this.axes.y);
             this.container.add(this.canvasMarkers);
         } else {
+            this.markers = new Pointset(this.axes.x, this.axes.y);
             this.container.add(this.markers);
         }
 
