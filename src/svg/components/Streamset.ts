@@ -2,7 +2,7 @@
 import Component from './Component';
 import XYAxes from './XYAxes';
 import Config from '../../Config';
-import {simple2stacked} from '../../utils/dataTransformation';
+import { simple2stacked } from '../../utils/dataTransformation';
 
 import {
     area,
@@ -47,20 +47,20 @@ class Streamset extends Component {
             dataSeries = stack(data4stack),
             series = null;
 
-        this.areaGenerator.x((d) => this.xyAxes.x.xAxis.scale()((new Date(d.data.key))));
+        this.areaGenerator.x((d: {}) => this.xyAxes.x.xAxis.scale()((new Date(d.data.key))));
 
         series = this.svg.selectAll('.serie')
             .data(dataSeries)
             .enter()
             .append('g')
             .attr('class', 'serie')
-            .style('stroke', (d, i) => colorScale(i));
+            .style('stroke', (d: {}, i: number) => colorScale(i));
 
         series
             .append('path')
             .attr('class', 'layer')
             .attr('d', this.areaGenerator)
-            .style('fill', (d, i) => colorScale(i));
+            .style('fill', (d: {}, i: number) => colorScale(i));
 
 
         series.exit().remove();

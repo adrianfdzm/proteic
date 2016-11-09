@@ -8,7 +8,7 @@ abstract class Component {
     constructor() {
     }
 
-    abstract update(data): void;
+    abstract update(data : [{}]): void;
     abstract render(): void;
 
     /**
