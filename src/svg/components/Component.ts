@@ -33,6 +33,7 @@ abstract class Component {
         this.svg.selectAll('.serie').remove();
     }
 
+
 };
 
 export default Component;    

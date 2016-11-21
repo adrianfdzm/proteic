@@ -105,6 +105,7 @@ class Barset extends Component {
 
     layerMerge = layer.merge(layerEnter)
       .attr('class', 'serie')
+      .attr('data-key', (d, i) => d.key)
       .attr('transform', (d) => 'translate(' + x(d.key) + ')');
 
     bar = layerMerge.selectAll('rect')

@@ -38,9 +38,9 @@ class Pointset extends Component {
       points = null,
       series = null;
 
-    this.svg.selectAll('g.points').remove();
+    this.svg.selectAll('g.serie').remove();
 
-    series = this.svg.selectAll('g.points');
+    series = this.svg.selectAll('g.serie');
 
     switch (markerShape) {
       case 'dot':
@@ -48,7 +48,8 @@ class Pointset extends Component {
           .data(dataSeries, (d) => d.key)
           .enter()
           .append('g')
-          .attr('class', 'points')
+          .attr('class', 'serie')
+          .attr('data-key', (d, i) => d.key)
           .style('fill', (d, i) => colorScale(i))
           .selectAll('circle')
           .data((d) => d.values)
@@ -65,7 +66,8 @@ class Pointset extends Component {
           .data(dataSeries, (d) => d.key)
           .enter()
           .append('g')
-          .attr('class', 'points')
+          .attr('class', 'serie')
+          .attr('data-key', (d, i) => d.key)
           .style('stroke', (d, i) => colorScale(i))
           .selectAll('circle')
           .data((d, i) => d.values)
@@ -85,7 +87,8 @@ class Pointset extends Component {
           .data(dataSeries, (d) => d.key)
           .enter()
           .append('g')
-          .attr('class', 'points')
+          .attr('class', 'serie')
+          .attr('data-key', (d, i) => d.key)
           .style('stroke', (d, i) => colorScale(i))
           .selectAll('circle')
           .data((d, i) => d.values)
@@ -103,7 +106,8 @@ class Pointset extends Component {
           .data(dataSeries, (d) => d.key)
           .enter()
           .append('g')
-          .attr('class', 'points')
+          .attr('class', 'serie')
+          .attr('data-key', (d, i) => d.key)
           .style('stroke', (d, i) => colorScale(i))
           .selectAll('circle')
           .data((d, i) => d.values)
@@ -117,7 +121,7 @@ class Pointset extends Component {
           .style('stroke-width', markerOutlineWidth);
     }
 
-    markers = this.svg.selectAll('g.points circle');
+    markers = this.svg.selectAll('g.serie circle');
     markers
       .on('mousedown.user', this.config.get('onDown'))
       .on('mouseup.user', this.config.get('onUp'))

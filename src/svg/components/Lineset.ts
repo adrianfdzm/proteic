@@ -39,6 +39,7 @@ class Lineset extends Component {
             .append('g')
             .attr('class', 'serie')
             .attr('stroke', (d, i) => colorScale(i))
+            .attr('data-key', (d,i) => d.key)
             .append('svg:path')
             .style('stroke', (d, i) => colorScale(i))
             .style('stroke-width', 1.3)
