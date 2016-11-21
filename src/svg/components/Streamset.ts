@@ -54,6 +54,7 @@ class Streamset extends Component {
             .enter()
             .append('g')
             .attr('class', 'serie')
+            .attr('data-key', (d, i) => d.key)
             .style('stroke', (d: {}, i: number) => colorScale(i));
 
         series
