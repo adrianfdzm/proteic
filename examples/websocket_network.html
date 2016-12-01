@@ -1,0 +1,37 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class='no-js lt-ie9 lt-ie8 lt-ie7' lang=''> <![endif]-->
+<!--[if IE 7]>         <html class='no-js lt-ie9 lt-ie8' lang=''> <![endif]-->
+<!--[if IE 8]>         <html class='no-js lt-ie9' lang=''> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang=''>
+<!--<![endif]-->
+
+<head>
+
+    <head>
+        <title>Real-time Network</title>
+        <script src='../node_modules/d3/build/d3.min.js'></script>
+        <script src='../dist/proteic.js'></script>
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="../dist/proteic.css">
+    </head>
+
+    <body>
+        <div id='chart'></div>
+        <script>
+            var data = {
+            endpoint: 'ws://localhost:3000/network'
+          };
+          
+          var ds = new proteic.WebsocketDatasource(data);
+          network = new proteic.Network([], {
+            width: '100%',
+            height: 600,
+            weighted: true,
+          }).datasource(ds);
+          ds.start();
+        </script>
+    </body>
+
+</html>

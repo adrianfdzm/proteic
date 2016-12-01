@@ -1,6 +1,7 @@
 import Config from '../../Config';
+import Responsible from './Responsible';
 
-abstract class Component {
+abstract class Component implements Responsible {
 
     protected config: Config;
     protected svg: any;
@@ -8,8 +9,10 @@ abstract class Component {
     constructor() {
     }
 
-    abstract update(data): void;
+    abstract update(data: any): void;
     abstract render(): void;
+
+    abstract makeItResponsive(): void;
 
     /**
      * 
@@ -29,8 +32,7 @@ abstract class Component {
      * 
      * Clean the current series.
      */
-    public clean () {
-        this.svg.selectAll('.serie').remove();
+    public clean() {
     }
 };
 

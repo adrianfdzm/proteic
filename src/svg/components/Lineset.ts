@@ -57,6 +57,12 @@ class Lineset extends Component {
             .attr('d', (d: any) => this.lineGenerator(d.values));
     }
 
+    public makeItResponsive() {
+        console.log('making lineset responsive');
+        this.svg.selectAll('.serie path')
+            .attr('d', (d: any) => this.lineGenerator(d.values));
+    }
+
 }
 
 export default Lineset;

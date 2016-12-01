@@ -29,7 +29,6 @@ class Areaset extends Component {
             propertyX = this.config.get('propertyX'),
             propertyY = this.config.get('propertyY');
 
-
         this.areaGenerator = area()
             .x((d: any) => this.x.xAxis.scale()(d[propertyX]))
             .y0(height)
@@ -61,6 +60,20 @@ class Areaset extends Component {
             .transition()
             //.duration(Globals.COMPONENT_TRANSITION_TIME)
             //.ease(easeLinear)
+            .attr('d', (d: any) => this.areaGenerator(d.values));
+    }
+    public makeItResponsive() {
+        let height = this.config.get('height'),
+            propertyX = this.config.get('propertyX'),
+            propertyY = this.config.get('propertyY');
+            
+        console.log('making area responsive');
+
+        this.areaGenerator = area()
+            .x((d: any) => this.x.xAxis.scale()(d[propertyX]))
+            .y0(height)
+            .y1((d: any) => this.y.yAxis.scale()(d[propertyY]));
+        this.svg.selectAll('.areaPath')
             .attr('d', (d: any) => this.areaGenerator(d.values));
 
     }

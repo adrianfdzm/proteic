@@ -1,0 +1,46 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class='no-js lt-ie9 lt-ie8 lt-ie7' lang=''> <![endif]-->
+<!--[if IE 7]>         <html class='no-js lt-ie9 lt-ie8' lang=''> <![endif]-->
+<!--[if IE 8]>         <html class='no-js lt-ie9' lang=''> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang=''>
+<!--<![endif]-->
+
+<head>
+    <title>Static scatter plot example</title>
+    <script src='../node_modules/d3/build/d3.min.js'></script>
+    <script src='../dist/proteic.min.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/proteic.css">
+</head>
+
+<body>
+    <h2>SVG</h2>
+    <div id='chart'></div>
+
+    <script>
+    var keys = ['k1', 'k2', 'k3', 'k4'];
+    var  n = 5000;
+    var data = [];
+
+    for(let i =0 ; i < keys.length; i++){
+        for(var j = 0; j < n; j++){
+            data.push({
+                x: parseInt(Math.random() * 100),
+                y: parseInt(Math.random() * 100),
+                key: keys[i]
+            });
+        }
+    }
+	var chart = new proteic.Scatterplot(data,{
+		xAxisLabel:'Sepal length (cm)',
+		yAxisLabel:'Sepal width (cm)',
+		markerShape: 'triangle',
+		onClick: (d) => window.console.log(d)
+	});
+	chart.draw();
+
+</script>
+</body>
+
+</html>

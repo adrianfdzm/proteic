@@ -4,6 +4,7 @@ import Config from '../Config';
 import { defaults } from '../utils/defaults/linechart';
 import { calculateWidth } from '../utils/screen';
 import { copy } from '../utils/functions';
+import Globals from '../Globals';
 
 class Linechart extends Chart {
 
@@ -28,10 +29,8 @@ class Linechart extends Chart {
     }
 
 
-    protected loadConfigFromUser(userData: { [key: string]: any; }): Config {       
-        console.log(userData);
+    protected loadConfigFromUser(userData: { [key: string]: any; }): Config {
         let config = new Config(),
-        
             //Selector
             selector = userData['selector'] || defaults.selector,
             //Margins 
@@ -40,10 +39,12 @@ class Linechart extends Chart {
             marginRight = (userData['marginRight'] !== undefined) ? userData['marginRight'] : defaults.marginRight,
             marginBottom = (userData['marginBottom'] !== undefined) ? userData['marginBottom'] : defaults.marginBottom,
             //Width & height
-            width = userData['width']
-                ? calculateWidth(userData['width'], selector) - marginLeft - marginRight
-                : calculateWidth(defaults.width, selector) - marginLeft - marginRight,
-            height = userData['height'] || defaults.height,
+            width = userData['width'] || defaults.width,
+            computedWidth = calculateWidth(width, selector) - marginLeft - marginRight,
+            //width = window.innerWidth - marginLeft - marginRight,
+            //computedWidth = window.innerWidth - marginLeft  - marginRight,
+            //height = userData['height'] || defaults.height,
+            height = Globals.ASPECT_RATIO > 0 ? Globals.ASPECT_RATIO * computedWidth : (userData['height'] || defaults.height),
             //Axis
             xAxisType = userData['xAxisType'] || defaults.xAxisType,
             xAxisFormat = userData['xAxisFormat'] || defaults.xAxisFormat,
@@ -79,6 +80,7 @@ class Linechart extends Chart {
         config.put('marginLeft', marginLeft);
         config.put('marginRight', marginRight);
         config.put('marginBottom', marginBottom);
+        config.put('computedWidth', computedWidth);
         config.put('width', width);
         config.put('height', height);
         config.put('xAxisType', xAxisType);

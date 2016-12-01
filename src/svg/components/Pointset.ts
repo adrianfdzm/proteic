@@ -123,9 +123,15 @@ class Pointset extends Component {
             .on('mouseover.user', this.config.get('onHover'))
             .on('click.user', this.config.get('onClick'));
 
-
     }
 
+    public makeItResponsive() {
+        let propertyX = this.config.get('propertyX');
+        let propertyY = this.config.get('propertyY');
+        console.log('making pointset responsive');
+        this.svg.selectAll('.marker')
+            .attr('transform', (d: any) => `translate(${this.x.xAxis.scale()(d[propertyX])}, ${this.y.yAxis.scale()(d[propertyY])})`);
+    }
 }
 
 export default Pointset;

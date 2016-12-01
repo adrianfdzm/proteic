@@ -31,11 +31,11 @@ class SvgStrategyLinechart extends SvgChart {
     private lines: Lineset;
 
 
-    private markers : Pointset;
+    private markers: Pointset;
 
-    private area : Areaset;
+    private area: Areaset;
 
-    private legend : Legend;
+    private legend: Legend;
 
 
     constructor() {
@@ -75,7 +75,7 @@ class SvgStrategyLinechart extends SvgChart {
             this.container.add(this.markers);
         }
 
-        if(legend){
+        if (legend) {
             this.legend = new Legend();
             this.container.add(this.legend);
         }

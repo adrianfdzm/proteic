@@ -14,17 +14,18 @@ class Container {
         this.config = config;
 
         let selector: string = this.config.get('selector'),
-            width: number = this.config.get('width'),
+            computedWidth: number = this.config.get('computedWidth'),
             height: number = this.config.get('height'),
             marginLeft: number = this.config.get('marginLeft'),
             marginRight: number = this.config.get('marginRight'),
             marginTop: number = this.config.get('marginTop'),
             marginBottom: number = this.config.get('marginBottom');
 
-        width += marginLeft + marginRight;
+
+        computedWidth += marginLeft + marginRight;
         height += marginTop + marginBottom;
 
-        this.initializeContainer(selector, width, height, marginLeft, marginTop);
+        this.initializeContainer(selector, computedWidth, height, marginLeft, marginTop);
     }
 
     /**
@@ -57,14 +58,14 @@ class Container {
      * @memberOf Container
     
      */
-    private initializeContainer(selector: string, width: (number | string), height: (number | string), marginLeft: number, marginTop: number): void {
+    private initializeContainer(selector: string, computedWidth: (number | string), height: (number | string), marginLeft: number, marginTop: number): void {
         this.svg = select(selector)
             .style('position', 'relative')
-            .style('width', `${width}px`)
+            .style('width', `${computedWidth}px`)
             .style('height', `${height}px`)
             .append('svg:svg')
             .attr('class', 'proteic')
-            .attr('width', width)
+            .attr('width', computedWidth)
             .attr('height', height)
             .style('position', 'absolute')
             .append('g')
@@ -87,17 +88,19 @@ class Container {
         }
     }
 
+
+    public responsive() {
+        for (let i = 0; i < this.components.length; i++) {
+            let component = this.components[i];
+            console.log(component.constructor.name);
+            component.makeItResponsive();
+        }
+    }
+
     public translate(x: Number, y: Number) {
         this.svg.attr('transform', `translate(${x}, ${y})`)
     }
 
-    public viewBox(w: number, h: number) {
-        this.svg.attr("viewBox", "0 0 " + w + " " + h);
-    }
-
-    public zoom(z: any) {
-        this.svg.call(zoom().scaleExtent([1 / 2, 4]).on("zoom", z));
-    }
 
     public addLoadingIcon() {
         let icon = Globals.LOADING_ICON;
@@ -112,6 +115,11 @@ class Container {
 
     public removeLoadingIcon() {
         this.svg.select('image[id="loadingIcon"]').transition().duration(200).remove();
+    }
+
+
+    public getSvg() {
+        return this.svg;
     }
 }
 

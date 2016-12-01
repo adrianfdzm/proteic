@@ -16,6 +16,7 @@ import {
 
 import { isEven } from '../../utils/functions';
 import { simple2stacked } from '../../utils/dataTransformation';
+import Globals from '../../Globals';
 
 class YAxis extends Component {
 
@@ -27,14 +28,14 @@ class YAxis extends Component {
 
 
     public render(): void {
-        let width = this.config.get('width'),
+        let computedWidth = this.config.get('computedWidth'),
             height = this.config.get('height'),
             yAxisFormat = this.config.get('yAxisFormat'),
             yAxisType = this.config.get('yAxisType'),
             yAxisLabel = this.config.get('yAxisLabel'),
             yAxisGrid = this.config.get('yAxisGrid');
 
-        this.initializeYAxis(width, height, yAxisFormat, yAxisType, yAxisGrid);
+        this.initializeYAxis(computedWidth, height, yAxisFormat, yAxisType, yAxisGrid);
 
         let yAxisG = this.svg
             .append('g')
@@ -130,6 +131,26 @@ class YAxis extends Component {
 
     get yAxis() {
         return this._yAxis;
+    }
+
+    public makeItResponsive() {
+        this._yAxis.tickSizeInner(-this.config.get('computedWidth'));
+        this._yAxis.scale().range([this.config.get('height'), 0]);
+        this._yAxis.scale(this._yAxis.scale());
+
+        this.svg.select('.yaxis-title')
+            .attr('x', 0 - this.config.get('height') / 2)
+            .attr('y', 0 - 55);
+
+
+        if (this.config.get('computedWidth') < Globals.BREAKPOINT) {
+            this._yAxis.ticks(3);
+        } else {
+            this._yAxis.ticks(7);
+        }
+
+        this.svg.select('.y.axis')
+            .call(this._yAxis);
     }
 }
 

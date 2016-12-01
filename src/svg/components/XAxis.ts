@@ -8,12 +8,13 @@ import {
     axisBottom,
     timeParse,
     min as d3Min,
-    max as d3Max
+    max as d3Max,
+    timeMonth
 } from 'd3';
 
 import Component from './Component';
 import Config from '../../Config';
-
+import Globals from '../../Globals';
 import { isEven } from '../../utils/functions';
 
 class XAxis extends Component {
@@ -25,14 +26,14 @@ class XAxis extends Component {
     }
 
     public render(): void {
-        let width = this.config.get('width'),
+        let computedWidth = this.config.get('computedWidth'),
             height = this.config.get('height'),
             xAxisFormat = this.config.get('xAxisFormat'),
             xAxisType = this.config.get('xAxisType'),
             xAxisLabel = this.config.get('xAxisLabel'),
             xAxisGrid = this.config.get('xAxisGrid');
 
-        this.initializeXAxis(width, height, xAxisFormat, xAxisType, xAxisGrid);
+        this.initializeXAxis(computedWidth, height, xAxisFormat, xAxisType, xAxisGrid);
 
         this.svg
             .append('g')
@@ -44,7 +45,7 @@ class XAxis extends Component {
             .append('text')
             .attr('class', 'xaxis-title')
             .attr("text-anchor", "middle")
-            .attr('x', width / 2)
+            .attr('x', computedWidth / 2)
             .attr('y', height + 40)
             .text(xAxisLabel)
             .style('font', '0.8em Montserrat, sans-serif');
@@ -128,10 +129,35 @@ class XAxis extends Component {
                 .tickSizeInner(-height)
                 .tickPadding(9);
         }
+        this._xAxis.ticks(7);
     }
 
     get xAxis() {
         return this._xAxis;
+    }
+
+    public makeItResponsive() {
+        console.log('making X responsive', this.config.get('computedWidth'), Globals.BREAKPOINT);
+        let xAxisType = this.config.get('xAxisType');
+
+        this._xAxis.scale().range([0, this.config.get('computedWidth')]);
+        this._xAxis.scale(this._xAxis.scale());
+
+        this.svg.select('.xaxis-title')
+            .attr('x', this.config.get('computedWidth') / 2)
+            .attr('y', this.config.get('height') + 40);
+
+
+        if (this.config.get('computedWidth') < Globals.BREAKPOINT) {
+            this._xAxis.ticks(3);
+        } else {
+            this._xAxis.ticks(7);
+        }
+
+        this.svg.select('.x.axis')
+            .attr('transform', 'translate(0,' + this.config.get('height') + ')')
+            .call(this._xAxis);
+
     }
 }
 

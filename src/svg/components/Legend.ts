@@ -30,7 +30,7 @@ class Legend extends Component {
             entries = null,
             colorScale = this.config.get('colorScale'),
             height = this.config.get('height'),
-            width = this.config.get('width');
+            width = this.config.get('computedWidth');
 
         if (dataSeries.length === 1 && dataSeries[0].key === 'undefined') {
             console.warn('Not showing legend, since there is a valid key');
@@ -79,6 +79,18 @@ class Legend extends Component {
             legendEntry.transition().duration(Globals.COMPONENT_HIDE_SHOW_TRANSITION_TIME).style('opacity', (opacity === 1) ? 1 : Globals.LEGEND_HIDE_OPACITY);
             element.transition().duration(Globals.COMPONENT_HIDE_SHOW_TRANSITION_TIME).style('opacity', opacity);
         }
+    }
+
+    public makeItResponsive() {
+        let computedWidth = this.config.get('computedWidth');
+
+        this.svg.selectAll('.legend-entry rect')
+            .attr('x', computedWidth + 10)
+            .attr('y', (d: any, i: number) => i * 25);
+
+        this.svg.selectAll('.legend-entry text')
+            .attr("x", computedWidth + 25 + 10)
+            .attr("y", (d: any, i: number) => i * 25 + 7);
     }
 
 }
