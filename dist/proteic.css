@@ -1,3 +1,360 @@
+.proteic-square {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-square:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 100%; }
+  .proteic-square:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-square > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-minor-second {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-minor-second:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 93.75%; }
+  .proteic-minor-second:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-minor-second > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-major-second {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-major-second:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 88.88889%; }
+  .proteic-major-second:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-major-second > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-minor-third {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-minor-third:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 83.33333%; }
+  .proteic-minor-third:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-minor-third > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-major-third {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-major-third:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 80%; }
+  .proteic-major-third:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-major-third > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-perfect-fourth {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-perfect-fourth:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 75%; }
+  .proteic-perfect-fourth:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-perfect-fourth > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-perfect-fifth {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-perfect-fifth:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 66.66667%; }
+  .proteic-perfect-fifth:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-perfect-fifth > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-minor-sixth {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-minor-sixth:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 62.5%; }
+  .proteic-minor-sixth:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-minor-sixth > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-golden-section {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-golden-section:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 61.8047%; }
+  .proteic-golden-section:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-golden-section > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-major-sixth {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-major-sixth:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 60%; }
+  .proteic-major-sixth:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-major-sixth > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-minor-seventh {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-minor-seventh:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 56.25%; }
+  .proteic-minor-seventh:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-minor-seventh > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-major-seventh {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-major-seventh:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 53.33333%; }
+  .proteic-major-seventh:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-major-seventh > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-octave {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-octave:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 50%; }
+  .proteic-octave:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-octave > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-major-tenth {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-major-tenth:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 40%; }
+  .proteic-major-tenth:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-major-tenth > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-major-eleventh {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-major-eleventh:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 37.5%; }
+  .proteic-major-eleventh:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-major-eleventh > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-major-twelfth {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-major-twelfth:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 33.33333%; }
+  .proteic-major-twelfth:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-major-twelfth > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.proteic-double-octave {
+  display: block;
+  position: relative;
+  width: 100%; }
+  .proteic-double-octave:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 25%; }
+  .proteic-double-octave:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .proteic-double-octave > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
 .proteic .axis text {
   font: 1.4em Montserrat, sans-serif; }
 
@@ -47,3 +404,7 @@
   .text-indicator .label {
     font: 1em Montserrat, sans-serif;
     text-overflow: ellipsis; }
+
+.proteic-line {
+  fill: none;
+  stroke-width: 4px; }

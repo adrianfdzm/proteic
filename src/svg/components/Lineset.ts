@@ -42,11 +42,10 @@ class Lineset extends Component {
             .attr(Globals.COMPONENT_DATA_KEY_ATTRIBUTE, (d: any) => d[propertyKey])
             .attr('stroke', (d: any) => colorScale(d[propertyKey]))
             .append('svg:path')
+            .attr('class', Globals.PROTEIC_CLASS_LINE)
             .style('stroke', (d: any) => colorScale(d[propertyKey]))
-            .style('stroke-width', 1.9)
-            .style('fill', 'none')
+            //.style('stroke-width', 1.9)
             .attr('d', (d: any) => this.lineGenerator(d.values))
-            .attr('class', 'line');
 
         //update existing lines
         this.svg.selectAll('.line')

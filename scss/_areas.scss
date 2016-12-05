@@ -1,0 +1,8 @@
+@mixin proteic-area($proteic-area-opacity: $proteic-area-opacity) {
+  stroke: none;
+  fill-opacity: $proteic-area-opacity;
+}
+
+.#{$proteic-class-area} {
+    @include proteic-area();
+}

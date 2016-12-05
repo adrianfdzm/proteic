@@ -59,15 +59,20 @@ class Container {
     
      */
     private initializeContainer(selector: string, computedWidth: (number | string), height: (number | string), marginLeft: number, marginTop: number): void {
+        console.log(computedWidth, height)
+       
+       
         this.svg = select(selector)
-            .style('position', 'relative')
-            .style('width', `${computedWidth}px`)
-            .style('height', `${height}px`)
+            //.style('position', 'relative')
+           // .style('width', `${computedWidth}px`)
+           // .style('height', `${height}px`)
             .append('svg:svg')
             .attr('class', 'proteic')
-            .attr('width', computedWidth)
-            .attr('height', height)
-            .style('position', 'absolute')
+            .attr('width', '100%')
+            .attr('height', '100%')
+            //.attr('width', computedWidth)
+            //.attr('height', height)
+            //.style('position', 'absolute')
             .append('g')
             .attr('class', 'chartContainer')
             .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');

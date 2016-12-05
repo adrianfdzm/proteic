@@ -1,0 +1,13 @@
+@mixin proteic-line($proteic-line-width: $proteic-line-width, $proteic-line-dasharray: $proteic-line-dasharray) {
+  fill: none;
+  stroke-width: $proteic-line-width;
+
+  @if ($proteic-line-dasharray) {
+    stroke-dasharray: $proteic-line-dasharray;
+  }
+}
+
+
+.#{$proteic-class-line} {
+    @include proteic-line($proteic-line-width, $proteic-line-dasharray);
+}
